@@ -1,0 +1,590 @@
+<html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华邦AI冲锋队 - Vibe Coding项目展示</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#FF7D00',
+                        dark: '#1D2129',
+                        light: '#F2F3F5'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+        }
+    </style>
+</head>
+<body class="font-inter bg-light text-dark">
+    <!-- 导航栏 -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex-shrink-0 flex items-center">
+                        <span class="text-primary font-bold text-xl">华邦AI冲锋队</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-dark hover:text-primary transition-colors">关于项目</a>
+                    <a href="#projects" class="text-dark hover:text-primary transition-colors">项目类别</a>
+                    <a href="#cases" class="text-dark hover:text-primary transition-colors">案例展示</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button type="button" class="text-dark hover:text-primary" id="menu-toggle">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div class="md:hidden hidden bg-white border-t" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-primary/10 hover:text-primary">关于项目</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-primary/10 hover:text-primary">项目类别</a>
+                <a href="#cases" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-primary/10 hover:text-primary">案例展示</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <header class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-br from-primary/10 to-light">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="w-full md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight text-dark mb-6">
+                        Vibe Coding<br>
+                        <span class="text-primary">3周3项目</span> 实战体验
+                    </h1>
+                    <p class="text-lg text-dark/80 mb-8 max-w-xl">
+                        通过游戏开发、产品推广网站和网页端工具开发三个实战项目，让学员在短时间内掌握全栈开发技能，体验真实项目开发流程。
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#projects" class="px-6 py-3 bg-primary hover:bg-primary/90 text-white rounded-lg shadow-lg hover:shadow-xl transition-all">
+                            查看项目
+                        </a>
+                        <a href="#cases" class="px-6 py-3 bg-white hover:bg-gray-50 text-primary border border-primary rounded-lg shadow-md hover:shadow-lg transition-all">浏览案例</a>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-primary/20 rounded-2xl blur-lg opacity-50 animate-pulse"></div>
+                        <img src="https://picsum.photos/id/3/600/400" alt="编程学习场景" class="relative rounded-xl shadow-2xl">
+                        <div class="absolute -bottom-5 -right-5 bg-white p-4 rounded-lg shadow-lg">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center text-primary">
+                                    <i class="fa fa-code text-xl"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm text-dark/60">完成项目</p>
+                                    <p class="text-lg font-bold">1000+</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 关于项目 -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark mb-4">关于 Vibe Coding</h2>
+                <p class="text-lg text-dark/70 max-w-2xl mx-auto">
+                    Vibe Coding 是一种沉浸式编程学习方法，通过实际项目操作，让学员在3周内快速掌握Web开发技能，完成从入门到实战的飞跃。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-light rounded-xl p-8 shadow-md card-hover">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-6">
+                        <i class="fa fa-calendar text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">3周时间</h3>
+                    <p class="text-dark/70">
+                        紧凑的学习周期，科学的课程安排，让学员在短时间内集中精力，高效学习。
+                    </p>
+                </div>
+
+                <div class="bg-light rounded-xl p-8 shadow-md card-hover">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-6">
+                        <i class="fa fa-cubes text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">3个项目</h3>
+                    <p class="text-dark/70">
+                        从游戏开发到产品网站，再到工具开发，循序渐进，全面掌握Web开发技能。
+                    </p>
+                </div>
+
+                <div class="bg-light rounded-xl p-8 shadow-md card-hover">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-6">
+                        <i class="fa fa-laptop text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">实战体验</h3>
+                    <p class="text-dark/70">
+                        真实项目开发流程，从需求分析到设计实现，再到部署上线，全方位体验。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目类别 -->
+    <section id="projects" class="py-16 bg-light">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark mb-4">项目类别</h2>
+                <p class="text-lg text-dark/70 max-w-2xl mx-auto">
+                    我们精心设计了三种不同类型的项目，涵盖Web开发的各个方面，满足不同学员的兴趣和需求。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 游戏开发 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md group card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/160/600/400" alt="游戏开发项目" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold">游戏开发</h3>
+                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">项目1</span>
+                        </div>
+                        <p class="text-dark/70 mb-6">
+                            学习HTML5 Canvas和JavaScript游戏开发基础，实现具有完整游戏逻辑的互动游戏，包括碰撞检测、计分系统和游戏状态管理。
+                        </p>
+                        <a href="#game-cases" class="inline-flex items-center text-primary hover:text-primary/80 font-medium">
+                            查看案例 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 产品推广网站 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md group card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/180/600/400" alt="产品推广网站项目" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold">产品推广网站</h3>
+                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">项目2</span>
+                        </div>
+                        <p class="text-dark/70 mb-6">学习现代网站设计原则，掌握响应式布局和用户体验优化，打造吸引人的产品展示平台。</p>
+                        <a href="#website-cases" class="inline-flex items-center text-primary hover:text-primary/80 font-medium">
+                            查看案例 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 网页端开发工具 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md group card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/0/600/400" alt="网页端开发工具项目" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold">网页端开发工具</h3>
+                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">项目3</span>
+                        </div>
+                        <p class="text-dark/70 mb-6">学习复杂交互界面和数据处理，掌握状态管理和API集成，开发实用的网页工具。</p>
+                        <a href="#tool-cases" class="inline-flex items-center text-primary hover:text-primary/80 font-medium">
+                            查看案例 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 案例展示 -->
+    <section id="cases" class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark mb-4">项目案例</h2>
+                <p class="text-lg text-dark/70 max-w-2xl mx-auto">
+                    以下是我们学员在Vibe Coding项目中完成的优秀作品，每个项目类别展示三个代表性案例。
+                </p>
+            </div>
+
+            <!-- 游戏开发案例 -->
+            <div id="game-cases" class="mb-20">
+                <div class="flex items-center mb-10">
+                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mr-4">
+                        <i class="fa fa-gamepad text-xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">游戏开发案例</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- 案例1 -->
+                    <div class="bg-light rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/0f1fb241be1845f1828c8a06997d2416~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1751553564&amp;x-signature=AezbA9mv4lwpFiiFAYvd%2ByQ7gCw%3D" alt="记忆卡片游戏" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold mb-2">记忆卡片游戏</h4>
+                            <p class="text-dark/70 mb-4">
+                                经典的记忆配对游戏，通过翻转卡片找到匹配的图案，锻炼记忆力和反应能力。
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-gray-200 text-dark/70 rounded text-xs">HTML</span>
+                                <span class="px-2 py-1 bg-gray-200 text-dark/70 rounded text-xs">CSS</span>
+                                <span class="px-2 py-1 bg-gray-200 text-dark/70 rounded text-xs">JavaScript</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-primary hover:text-primary/80 font-medium">
+                                查看详情 <i class="fa fa-external-link ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 案例2 -->
+                    <div class="bg-light rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://p3-search.byteimg.com/obj/labis/0d12a3d66f45b8903e44fc3677d316b8" alt="贪吃蛇游戏" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold mb-2">贪吃蛇游戏</h4>
+                            <p class="text-dark/70 mb-4">
+                                经典街机游戏的现代重制版，控制蛇移动并吃食物，避免撞到墙壁或自己的身体。
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-gray-200 text-dark/70 rounded text-xs">HTML5 Canvas</span>
+                                <span class="px-2 py-1 bg-gray-200 text-dark/70 rounded text-xs">JavaScript</span>
+                                <span class="px-2 py-1 bg-gray-200 text-dark/70 rounded text-xs">LocalStorage</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-primary hover:text-primary/80 font-medium">
+                                查看详情 <i class="fa fa-external-link ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 案例3 -->
+                    <div class="bg-light rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://picsum.photos/id/160/600/400" alt="像素飞鸟（Flappy Bird）" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold mb-2">像素飞鸟（Flappy Bird）</h4>
+                            <p class="text-dark/70 mb-4">
+                                经典像素风格的飞鸟游戏，玩家通过点击屏幕控制小鸟飞行，穿越管道间隙获取高分。
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-gray-200 text-dark/70 rounded text-xs">HTML5 Canvas</span>
+                                <span class="px-2 py-1 bg-gray-200 text-dark/70 rounded text-xs">JavaScript</span>
+                                <span class="px-2 py-1 bg-gray-200 text-dark/70 rounded text-xs">动画算法</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-primary hover:text-primary/80 font-medium">
+                                查看详情 <i class="fa fa-external-link ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 产品推广网站案例 -->
+            <div id="website-cases" class="mb-20">
+                <div class="flex items-center mb-10">
+                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mr-4">
+                        <i class="fa fa-globe text-xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">产品推广网站案例</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- 案例1 -->
+                    <div class="bg-light rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://picsum.photos/id/119/600/400" alt="智能家居展示网站" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold mb-2">智能家居展示网站</h4>
+                            <p class="text-dark/70 mb-4">
+                                展示智能家居产品系列的现代网站，包含产品展示、功能介绍和用户评价等模块。
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-gray-200 text-dark/70 rounded text-xs">HTML</span>
+                                <span class="px-2 py-1 bg-gray-200 text-dark/70 rounded text-xs">CSS Grid</span>
+                                <span class="px-2 py-1 bg-gray-200 text-dark/70 rounded text-xs">JavaScript</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-primary hover:text-primary/80 font-medium">
+                                查看详情 <i class="fa fa-external-link ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 案例2 -->
+                    <div class="bg-light rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://picsum.photos/id/106/600/400" alt="咖啡品牌网站" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold mb-2">咖啡品牌网站</h4>
+                            <p class="text-dark/70 mb-4">
+                                为精品咖啡品牌设计的宣传网站，包含品牌故事、产品目录、门店位置和订阅服务。
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-gray-200 text-dark/70 rounded text-xs">React</span>
+                                <span class="px-2 py-1 bg-gray-200 text-dark/70 rounded text-xs">Next.js</span>
+                                <span class="px-2 py-1 bg-gray-200 text-dark/70 rounded text-xs">Tailwind CSS</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-primary hover:text-primary/80 font-medium">
+                                查看详情 <i class="fa fa-external-link ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 案例3 -->
+                    <div class="bg-light rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://picsum.photos/id/104/600/400" alt="旅行服务网站" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold mb-2">旅行服务网站</h4>
+                            <p class="text-dark/70 mb-4">
+                                提供旅行套餐预订的服务型网站，包含目的地展示、用户评价和便捷的预订系统。
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-gray-200 text-dark/70 rounded text-xs">Vue.js</span>
+                                <span class="px-2 py-1 bg-gray-200 text-dark/70 rounded text-xs">Vue Router</span>
+                                <span class="px-2 py-1 bg-gray-200 text-dark/70 rounded text-xs">Firebase</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-primary hover:text-primary/80 font-medium">
+                                查看详情 <i class="fa fa-external-link ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 网页端开发工具案例 -->
+            <div id="tool-cases">
+                <div class="flex items-center mb-10">
+                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mr-4">
+                        <i class="fa fa-wrench text-xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">网页端开发工具案例</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- 案例1 -->
+                    <div class="bg-light rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://picsum.photos/id/3/600/400" alt="代码格式化工具" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold mb-2">代码格式化工具</h4>
+                            <p class="text-dark/70 mb-4">
+                                支持多种编程语言的代码格式化工具，提供实时预览和自定义配置选项。
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-gray-200 text-dark/70 rounded text-xs">Monaco Editor</span>
+                                <span class="px-2 py-1 bg-gray-200 text-dark/70 rounded text-xs">React</span>
+                                <span class="px-2 py-1 bg-gray-200 text-dark/70 rounded text-xs">TypeScript</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-primary hover:text-primary/80 font-medium">
+                                查看详情 <i class="fa fa-external-link ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 案例2 -->
+                    <div class="bg-light rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://picsum.photos/id/180/600/400" alt="数据可视化工具" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold mb-2">数据可视化工具</h4>
+                            <p class="text-dark/70 mb-4">
+                                简单易用的数据可视化平台，支持多种图表类型，可导入CSV数据并生成交互式图表。
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-gray-200 text-dark/70 rounded text-xs">D3.js</span>
+                                <span class="px-2 py-1 bg-gray-200 text-dark/70 rounded text-xs">Chart.js</span>
+                                <span class="px-2 py-1 bg-gray-200 text-dark/70 rounded text-xs">Node.js</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-primary hover:text-primary/80 font-medium">
+                                查看详情 <i class="fa fa-external-link ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 案例3 -->
+                    <div class="bg-light rounded-xl overflow-hidden shadow-md card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://picsum.photos/id/0/600/400" alt="任务管理应用" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold mb-2">任务管理应用</h4>
+                            <p class="text-dark/70 mb-4">
+                                功能完整的任务管理应用，支持任务创建、分类、优先级设置和进度跟踪等功能。
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-gray-200 text-dark/70 rounded text-xs">Vue 3</span>
+                                <span class="px-2 py-1 bg-gray-200 text-dark/70 rounded text-xs">Pinia</span>
+                                <span class="px-2 py-1 bg-gray-200 text-dark/70 rounded text-xs">MongoDB</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-primary hover:text-primary/80 font-medium">
+                                查看详情 <i class="fa fa-external-link ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 注册区域 -->
+    <section class="py-16 bg-gradient-to-br from-primary to-primary/80 text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-6">加入华邦AI冲锋队</h2>
+                <p class="text-lg text-white/90 mb-8">
+                    准备好开始你的编程之旅了吗？立即报名参加Vibe Coding课程，在3周内完成3个精彩项目！
+                </p>
+                <a href="#" class="inline-block px-8 py-4 bg-white text-primary font-bold rounded-lg shadow-lg hover:shadow-xl hover:bg-gray-100 transition-all transform hover:-translate-y-1">
+                    立即报名
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">华邦AI冲锋队</h3>
+                    <p class="text-gray-400 mb-4">
+                        通过实践项目，培养未来AI和Web开发领域的创新人才。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-weixin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-github text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">快速链接</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">关于项目</a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-white transition-colors">项目类别</a></li>
+                        <li><a href="#cases" class="text-gray-400 hover:text-white transition-colors">案例展示</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">课程介绍</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">联系我们</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fa fa-map-marker mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">重庆市渝北区星光大道69号</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-phone mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">400-123-4567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-envelope mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">contact@huabangai.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">订阅资讯</h4>
+                    <p class="text-gray-400 mb-4">
+                        订阅我们的邮件，获取最新课程和活动信息。
+                    </p>
+                    <form class="flex">
+                        <input type="email" placeholder="您的邮箱地址" class="px-4 py-2 bg-gray-800 text-white rounded-l-lg focus:outline-none focus:ring-2 focus:ring-primary w-full">
+                        <button type="submit" class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-r-lg">
+                            <i class="fa fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>© 2025 华邦AI冲锋队. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.add('bg-white');
+                navbar.classList.remove('bg-white/90');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.add('bg-white/90');
+                navbar.classList.remove('bg-white');
+            }
+        });
+
+        // 移动端菜单切换
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // 关闭移动菜单
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+    </script>
+
+
+    
+    </body></html>
